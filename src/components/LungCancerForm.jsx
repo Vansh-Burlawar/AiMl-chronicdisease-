@@ -110,10 +110,30 @@ function LungCancerForm({patientData , onBack}){
                             </select>
                             <small> Persistent Dry Cough</small>
                         </div>
+                        <div className="form-group">
+                            <label htmlFor="snoring"> Snoring</label>
+                            <select
+                            id="snoring"
+                            name="snoring"
+                            value={formData.alcoholUse}
+                            onChange={handleChange}
+                            required >
+                                {yesNoOptions.map(option=>(
+                                    <option key={option.value} value={option.value}>{option.label}</option>
+                                ))}
+                            </select>
+                            <small>Snoring During Sleep</small>
+                        </div>
 
                     </div>
+                </div>
+                <div className="form-actions">
+                    <button type='button' className="cancel-button" onClick={onBack}> Cancel</button>
+                    <button type='submit' className="Submit-button" > Click To Analyze</button>
                 </div>
             </form>
         </div>
     )
 }
+
+export default LungCancerForm
