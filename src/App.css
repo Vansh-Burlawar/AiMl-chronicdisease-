@@ -265,3 +265,285 @@ body {
   padding: 30px 40px;
   position: relative;
 }
+
+.back-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-2px);
+}
+
+.form-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.patient-info {
+  display: flex;
+  gap: 30px;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Prediction Form Styles */
+.prediction-form {
+  padding: 40px;
+}
+
+.form-section {
+  margin-bottom: 40px;
+}
+
+.form-section h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.section-description {
+  color: #6b7280;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.form-group small {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.form-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  padding-top: 30px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.cancel-button {
+  background: #f3f4f6;
+  color: #374151;
+  border: 2px solid #d1d5db;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-button:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+/* Empty Form Styles */
+.empty-form-content {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.empty-state {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 30px;
+  opacity: 0.7;
+}
+
+.empty-state h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.empty-state p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.coming-features {
+  background: #f9fafb;
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.coming-features h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.coming-features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.coming-features li {
+  padding: 10px 0;
+  color: #4b5563;
+  font-size: 1rem;
+  position: relative;
+  padding-left: 25px;
+}
+
+.coming-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+}
+
+.contact-info {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  border-radius: 12px;
+  padding: 20px;
+  color: #1e40af;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app {
+    padding: 15px;
+  }
+
+  .main-title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .header {
+    padding: 30px 15px;
+  }
+
+  .patient-form-container,
+  .prediction-form {
+    padding: 25px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .form-header {
+    padding: 25px 20px;
+  }
+
+  .form-header h1 {
+    font-size: 2rem;
+  }
+
+  .patient-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .cards-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .form-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .patient-form-container,
+  .prediction-form,
+  .empty-form-content {
+    padding: 20px;
+  }
+}
+
+/* Loading and Animation States */
+.form-group input:focus,
+.form-group select:focus {
+  animation: focusGlow 0.3s ease-in-out;
+}
+
+@keyframes focusGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+}
+
+.prediction-card {
+  animation: cardSlideIn 0.5s ease-out;
+}
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility Improvements */
+.form-group input:focus,
+.form-group select:focus,
+.submit-button:focus,
+.back-button:focus,
+.cancel-button:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+@media print {
+  .back-button,
+  .form-actions {
+    display: none;
+  }
+  
+  .form-container {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
