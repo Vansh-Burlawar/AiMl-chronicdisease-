@@ -555,7 +555,7 @@ body {
     display: none;
   }
   
-  .form-container {
+  .form-container {  
     box-shadow: none;
     border: 1px solid #ccc;
   }
