@@ -16,7 +16,7 @@ function PatientForm({ onSubmit }) {
       ...prev,
       [name]: value
     }))
-    
+    // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -32,8 +32,8 @@ function PatientForm({ onSubmit }) {
       newErrors.name = 'Name is required'
     }
     
-    if (!formData.age || formData.age < 1 || formData.age > 100) {
-      newErrors.age = 'Please enter a valid age (1-100)'
+    if (!formData.age || formData.age < 1 || formData.age > 120) {
+      newErrors.age = 'Please enter a valid age (1-120)'
     }
     
     if (!formData.gender) {
@@ -49,7 +49,7 @@ function PatientForm({ onSubmit }) {
     return newErrors
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const newErrors = validateForm()
     
