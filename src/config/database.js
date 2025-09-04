@@ -4,7 +4,7 @@ import dontenv from 'dotenv';
 const dbConfig ={
     host: import.meta.env.VITE_DB_HOST || 'localhost',
     user: import.meta.env.VITE_DB_USER || 'root',
-    password: import.meta.env.VITE_DB_PASSWORD || '',
+    password: import.meta.env.VITE_DB_PASSWORD || 'UK@412uk',
     database:  import.meta.env.VITE_DB_NAME || 'medical_app',
     port: import.meta.env.VITE_DB_PORT || 3306,
 
