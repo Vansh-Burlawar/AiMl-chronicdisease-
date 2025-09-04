@@ -8,7 +8,7 @@ const dbConfig ={
     database:  import.meta.env.VITE_DB_NAME || 'medical_app',
     port: import.meta.env.VITE_DB_PORT || 3306,
 
-};
+};//this is for debugging
 
 let connection=null;
 export const connectDB = async()=> {
