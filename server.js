@@ -2,7 +2,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { createPatientsTable, savePatient } from './services/patientservices.js';
+import { createPatientsTable, savePatient } from './src/services/patientservices.js';
 
 dotenv.config();
 const app = express();
