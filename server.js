@@ -29,5 +29,5 @@ app.post('/api/patients', async (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () =>
-  console.log(`🚀 Backend running at http://localhost:${PORT}`)
+  console.log(` Backend running at http://localhost:${PORT}`)
 );
