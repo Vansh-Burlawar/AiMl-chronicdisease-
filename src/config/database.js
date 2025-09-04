@@ -32,6 +32,6 @@ export const closeDB = async () => {
     connection = null;
     console.log('🔒 Connection Ended');
   }
-};
+};//This is for debugging
 
 export default connection;
