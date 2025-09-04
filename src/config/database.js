@@ -1,4 +1,5 @@
-import mysql from 'mysq12/promise';
+import mysql from 'mysql2/promise';
+import dontenv from 'dotenv';
 
 const dbConfig ={
     host: import.meta.env.VITE_DB_HOST || 'localhost',
