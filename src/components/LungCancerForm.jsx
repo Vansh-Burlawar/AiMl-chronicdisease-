@@ -4,12 +4,13 @@ function LungCancerForm({ patientData, onBack }) {
   const [formData, setFormData] = useState({
     smoking: '',
     yellowFingers: '',
-    anxiety: '',
-    peerPressure: '',
-    chronicDisease: '',
     fatigue: '',
     allergy: '',
-    wheezing: ''
+    wheezing: '',
+    coughing: '',
+    shortnessOfBreath: '',
+    swallowingDifficulty: '',
+    chestPain: ''
   })
 
   const handleChange = (e) => {
@@ -56,7 +57,6 @@ function LungCancerForm({ patientData, onBack }) {
                 <option value="1">NO (1)</option>
                 <option value="2">YES (2)</option>
               </select>
-              <small>Do you smoke cigarettes?</small>
             </div>
 
             <div className="form-group">
@@ -72,55 +72,6 @@ function LungCancerForm({ patientData, onBack }) {
                 <option value="1">NO (1)</option>
                 <option value="2">YES (2)</option>
               </select>
-              <small>Do you have yellow staining on fingers?</small>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="anxiety">Anxiety</label>
-              <select
-                id="anxiety"
-                name="anxiety"
-                value={formData.anxiety}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Select Option</option>
-                <option value="1">NO (1)</option>
-                <option value="2">YES (2)</option>
-              </select>
-              <small>Do you experience anxiety frequently?</small>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="peerPressure">Peer Pressure</label>
-              <select
-                id="peerPressure"
-                name="peerPressure"
-                value={formData.peerPressure}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Select Option</option>
-                <option value="1">NO (1)</option>
-                <option value="2">YES (2)</option>
-              </select>
-              <small>Have you experienced peer pressure to smoke?</small>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="chronicDisease">Chronic Disease</label>
-              <select
-                id="chronicDisease"
-                name="chronicDisease"
-                value={formData.chronicDisease}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Select Option</option>
-                <option value="1">NO (1)</option>
-                <option value="2">YES (2)</option>
-              </select>
-              <small>Do you have any chronic diseases?</small>
             </div>
 
             <div className="form-group">
@@ -136,7 +87,6 @@ function LungCancerForm({ patientData, onBack }) {
                 <option value="1">NO (1)</option>
                 <option value="2">YES (2)</option>
               </select>
-              <small>Do you experience frequent fatigue?</small>
             </div>
 
             <div className="form-group">
@@ -152,7 +102,6 @@ function LungCancerForm({ patientData, onBack }) {
                 <option value="1">NO (1)</option>
                 <option value="2">YES (2)</option>
               </select>
-              <small>Do you have allergies?</small>
             </div>
 
             <div className="form-group">
@@ -168,7 +117,66 @@ function LungCancerForm({ patientData, onBack }) {
                 <option value="1">NO (1)</option>
                 <option value="2">YES (2)</option>
               </select>
-              <small>Do you experience wheezing?</small>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="coughing">Coughing</label>
+              <select
+                id="coughing"
+                name="coughing"
+                value={formData.coughing}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Option</option>
+                <option value="1">NO (1)</option>
+                <option value="2">YES (2)</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="shortnessOfBreath">Shortness of Breath</label>
+              <select
+                id="shortnessOfBreath"
+                name="shortnessOfBreath"
+                value={formData.shortnessOfBreath}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Option</option>
+                <option value="1">NO (1)</option>
+                <option value="2">YES (2)</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="swallowingDifficulty">Swallowing Difficulty</label>
+              <select
+                id="swallowingDifficulty"
+                name="swallowingDifficulty"
+                value={formData.swallowingDifficulty}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Option</option>
+                <option value="1">NO (1)</option>
+                <option value="2">YES (2)</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="chestPain">Chest Pain</label>
+              <select
+                id="chestPain"
+                name="chestPain"
+                value={formData.chestPain}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Option</option>
+                <option value="1">NO (1)</option>
+                <option value="2">YES (2)</option>
+              </select>
             </div>
           </div>
         </div>
