@@ -17,11 +17,11 @@ export const connectDB = async () => {
   try {
     if (!connection) {
       connection = await mysql.createConnection(dbConfig);
-      console.log('✅ Connected to DataBase');
+      console.log('Connected to DataBase');
     }
     return connection;
   } catch (error) {
-    console.error('❌ Connection failed:', error);
+    console.error('Connection failed:', error);
     throw error;
   }
 };
@@ -30,7 +30,7 @@ export const closeDB = async () => {
   if (connection) {
     await connection.end();
     connection = null;
-    console.log('🔒 Connection Ended');
+    console.log('Connection Ended');
   }
 };//This is for debugging
 

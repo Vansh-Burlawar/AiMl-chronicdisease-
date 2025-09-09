@@ -15,9 +15,9 @@ export const createPatientsTable = async () => {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
     `);
-    console.log('✅ Patients table is ready');
+    console.log('Patients table is ready');
   } catch (err) {
-    console.error('❌ Error creating patients table:', err.message);
+    console.error('Error creating patients table:', err.message);
   }
 };
 
@@ -31,7 +31,7 @@ export const savePatient = async ({ name, age, gender, phoneNumber }) => {
     );
     return { success: true, id: result.insertId };
   } catch (err) {
-    console.error('❌ Error saving patient:', err.message);
+    console.error('Error saving patient:', err.message);
     return { success: false, error: err.message };
   }
 };

@@ -55,14 +55,14 @@ function PatientForm() {
 
       const result = await response.json()
       if (result.success) {
-        alert(`✅ Patient saved with ID: ${result.id}`)
+        alert(`Patient saved with ID: ${result.id}`)
         setFormData({ name: '', age: '', gender: '', phoneNumber: '' })
       } else {
-        alert(`❌ Error: ${result.error || 'Failed to save patient'}`)
+        alert(`Error: ${result.error || 'Failed to save patient'}`)
       }
     } catch (err) {
       console.error(err)
-      alert('❌ Server error: Could not connect to backend')
+      alert('Server error: Could not connect to backend')
     } finally {
       setLoading(false)
     }
