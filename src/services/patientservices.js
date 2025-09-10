@@ -1,7 +1,7 @@
-// services/patientservices.js
+
 import { connectDB } from '../config/database.js';
 
-// Create table if not exists
+
 export const createPatientsTable = async () => {
   try {
     const connection = await connectDB();
@@ -21,7 +21,6 @@ export const createPatientsTable = async () => {
   }
 };
 
-// Save new patient
 export const savePatient = async ({ name, age, gender, phoneNumber }) => {
   try {
     const connection = await connectDB();

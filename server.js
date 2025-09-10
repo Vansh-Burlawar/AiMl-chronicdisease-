@@ -1,4 +1,4 @@
-// server.js
+
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -7,13 +7,11 @@ import { createPatientsTable, savePatient } from './src/services/patientservices
 dotenv.config();
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:5173' })); // allow frontend
+app.use(cors({ origin: 'http://localhost:5173' })); 
 app.use(express.json());
 
-// create patients table when backend starts
 createPatientsTable();
 
-// API route for saving patient
 app.post('/api/patients', async (req, res) => {
   try {
     const result = await savePatient(req.body);
