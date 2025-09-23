@@ -190,4 +190,4 @@ function LungCancerForm({ patientData, onBack }) {
   )
 }
 
-export default LungCancerForm
+export default LungCancerForm //We can call this in our patient form 

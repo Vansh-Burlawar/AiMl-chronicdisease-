@@ -8,7 +8,7 @@ const dbConfig = {
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || 'UK@412uk',
   database: process.env.DB_NAME || 'medical_app',
-  port: process.env.DB_PORT || 3306,
+  port: process.env.DB_PORT || 3306, //this is database port 
 };
 
 let connection = null;

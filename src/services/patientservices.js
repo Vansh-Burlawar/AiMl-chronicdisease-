@@ -1,4 +1,4 @@
-
+//Schema File 
 import { connectDB } from '../config/database.js';
 
 

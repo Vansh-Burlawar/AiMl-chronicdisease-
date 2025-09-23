@@ -153,4 +153,4 @@ function DiabetesForm({ patientData, onBack }) {
   )
 }
 
-export default DiabetesForm
+export default DiabetesForm //We can call this in our patient form 
