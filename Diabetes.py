@@ -1,10 +1,47 @@
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 import joblib
 import numpy as np
-from flask import flask,jsonify,request
 
+app = Flask(__name__)
+CORS(app)
 
-app=flask(__name__)
-model = joblib.load("Diabetes.pkl")
-@app.rout("\predict" , methods=["POST"])
-def prefict():
-    
+# LOAD TRAINED DIABETES MODEL
+model = joblib.load("Diabetes.pkl")   # ensure correct path
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    try:
+        data = request.get_json()
+
+        # STRICT ORDER — MUST MATCH TRAINING MODEL EXACTLY
+        features = [
+            float(data['GLUCOSE']),
+            float(data['BLOOD_PRESSURE']),
+            float(data['SKIN_THICKNESS']),
+            float(data['INSULIN']),
+            float(data['BMI']),
+            float(data['DPF']),
+            float(data['AGE'])
+        ]
+
+        final_features = np.array([features])
+
+        pred_raw = model.predict(final_features)
+        pred_prob = model.predict_proba(final_features)
+
+        prediction = "YES" if pred_raw[0] == 1 else "NO"
+
+        response = {
+            "prediction": prediction,
+            "probability_NO": round(pred_prob[0][0] * 100, 2),
+            "probability_YES": round(pred_prob[0][1] * 100, 2)
+        }
+
+        return jsonify(response)
+
+    except Exception as e:
+        return jsonify({"error": str(e)})
+
+if __name__ == "__main__":
+    app.run(debug=True)
