@@ -6,15 +6,15 @@ import numpy as np
 app = Flask(__name__)
 CORS(app)
 
-# LOAD TRAINED DIABETES MODEL
-model = joblib.load("Diabetes.pkl")   # ensure correct path
+
+model = joblib.load("Diabetes.pkl")  
 
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
         data = request.get_json()
 
-        # STRICT ORDER — MUST MATCH TRAINING MODEL EXACTLY
+      
         features = [
             float(data['GLUCOSE']),
             float(data['BLOOD_PRESSURE']),
