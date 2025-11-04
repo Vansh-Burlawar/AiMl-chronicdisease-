@@ -10,6 +10,11 @@ CORS(app)
 diabetes_model = joblib.load("Diabetes.pkl")
 lung_model = joblib.load("lung_cancer_model.pkl")
 
+# --- ADD THIS LINE ---
+# Load the scaler for the diabetes model
+diabetes_scaler = joblib.load("diabetes_scaler.pkl")
+# ---------------------
+
 
 # -----------------------------------------------------
 # DIABETES PREDICTION
@@ -31,8 +36,15 @@ def predict_diabetes():
 
         final = np.array([features], dtype=float)
 
-        pred_raw = diabetes_model.predict(final)
-        pred_prob = diabetes_model.predict_proba(final)
+        # --- APPLY THE SCALER ---
+        # Scale the incoming data just like you scaled the training data
+        scaled_data = diabetes_scaler.transform(final)
+        # ------------------------
+
+        # --- USE THE SCALED DATA TO PREDICT ---
+        pred_raw = diabetes_model.predict(scaled_data)
+        pred_prob = diabetes_model.predict_proba(scaled_data)
+        # --------------------------------------
 
         prediction = "YES" if int(pred_raw[0]) == 1 else "NO"
 
@@ -51,6 +63,7 @@ def predict_diabetes():
 
 # -----------------------------------------------------
 # LUNG CANCER PREDICTION
+# (This part is correct, no changes needed)
 # -----------------------------------------------------
 @app.route('/predict/lung_cancer', methods=['POST'])
 def predict_lung():
