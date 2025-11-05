@@ -9,7 +9,7 @@ function App() {
   const [patientData, setPatientData] = useState({
     name: '',
     age: '',
-    gender: '',//Default userState
+    gender: '',
     phoneNumber: ''
   })
 

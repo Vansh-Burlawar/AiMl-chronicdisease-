@@ -6,19 +6,12 @@ import numpy as np
 app = Flask(__name__)
 CORS(app)
 
-# LOAD MODELS
 diabetes_model = joblib.load("Diabetes.pkl")
 lung_model = joblib.load("lung_cancer_model.pkl")
 
-# --- ADD THIS LINE ---
-# Load the scaler for the diabetes model
+
 diabetes_scaler = joblib.load("diabetes_scaler.pkl")
-# ---------------------
 
-
-# -----------------------------------------------------
-# DIABETES PREDICTION
-# -----------------------------------------------------
 @app.route('/predict/diabetes', methods=['POST'])
 def predict_diabetes():
     try:
@@ -36,15 +29,13 @@ def predict_diabetes():
 
         final = np.array([features], dtype=float)
 
-        # --- APPLY THE SCALER ---
-        # Scale the incoming data just like you scaled the training data
         scaled_data = diabetes_scaler.transform(final)
-        # ------------------------
+  
 
-        # --- USE THE SCALED DATA TO PREDICT ---
+   
         pred_raw = diabetes_model.predict(scaled_data)
         pred_prob = diabetes_model.predict_proba(scaled_data)
-        # --------------------------------------
+
 
         prediction = "YES" if int(pred_raw[0]) == 1 else "NO"
 
@@ -61,10 +52,7 @@ def predict_diabetes():
         return jsonify({"error": str(e)})
 
 
-# -----------------------------------------------------
-# LUNG CANCER PREDICTION
-# (This part is correct, no changes needed)
-# -----------------------------------------------------
+
 @app.route('/predict/lung_cancer', methods=['POST'])
 def predict_lung():
     try:
@@ -102,8 +90,5 @@ def predict_lung():
         return jsonify({"error": str(e)})
 
 
-# -----------------------------------------------------
-# RUN SERVER
-# -----------------------------------------------------
 if __name__ == "__main__":
     app.run(debug=True)

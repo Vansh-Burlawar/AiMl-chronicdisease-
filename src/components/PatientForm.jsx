@@ -147,4 +147,3 @@ function PatientForm() {
 }
 
 export default PatientForm
-//This will be exported in the our APP.jsx file 
